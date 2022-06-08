@@ -4,6 +4,15 @@ public class Midia {
 	private String nome;
 	private String codigoBarras;
 	private Float preco;
+	private Artista artista;
+
+	public void setArtista(Artista artista) {
+		this.artista = artista;
+	}
+
+	public Artista getArtista() {
+		return artista;
+	}
 
 	public Midia(String nome, Float preco, String codigoBarras) {
 		this.codigoBarras = codigoBarras;
@@ -13,7 +22,8 @@ public class Midia {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + ", Codigo barras: " + this.codigoBarras + ", Preco: " + this.preco;
+		return "Nome mídia: " + this.nome + ", Codigo barras: " + this.codigoBarras + ", Preco: " + this.preco
+				+ ", Artista: " + this.artista.getNome();
 	}
 
 	public String getCodigoBarras() {
@@ -38,5 +48,14 @@ public class Midia {
 
 	public void setPreco(Float preco) {
 		this.preco = preco;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return false;
+	}
+
+	public boolean equals(Midia obj) {
+		return obj.getNome() == this.getNome();
 	}
 }

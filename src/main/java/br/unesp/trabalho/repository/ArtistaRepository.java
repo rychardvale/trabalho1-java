@@ -1,27 +1,39 @@
 package br.unesp.trabalho.repository;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.Map;
 
 import br.unesp.trabalho.models.Artista;
+import br.unesp.trabalho.utils.Utils;
 
 public final class ArtistaRepository {
-	private static Set<Artista> artistas = new HashSet<>();
+	private static Map<String, Artista> mapArtista = new HashMap<>();
 
-	public void adicionarArtista(Artista artista) {
-		if (artistas.contains(artista)) {
-			System.out.println("Artista já cadastrado");
-			return;
-		}
-
-		artistas.add(artista);
+	public static void adicionarArtista(Artista artista) {
+		mapArtista.put(artista.getNome(), artista);
 	}
 
-	public void listarArtistas() {
-		Iterator<Artista> iterator = artistas.iterator();
+	public static void listarArtistas() {
+		Iterator<Artista> iterator = mapArtista.values().iterator();
+		int i = 0;
 		while (iterator.hasNext()) {
-			System.out.println(iterator.next().toString());
+			i++;
+			Utils.print(i + ". " + iterator.next().getNome());
 		}
+	}
+
+	public static Artista buscarArtista(Artista artista) {
+		if (mapArtista.containsKey(artista.getNome())) {
+			return mapArtista.get(artista.getNome());
+		}
+		return null;
+	}
+
+	public static Artista buscarArtista(String nome) {
+		if (mapArtista.containsKey(nome)) {
+			return mapArtista.get(nome);
+		}
+		return null;
 	}
 }

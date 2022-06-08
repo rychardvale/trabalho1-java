@@ -12,9 +12,7 @@ public class CD extends Midia {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		System.out.println(this.numeroFaixas);
-		return super.toString();
+		return super.toString() + "Número de faixas: " + this.numeroFaixas;
 	}
 
 	public Integer getNumeroFaixas() {
