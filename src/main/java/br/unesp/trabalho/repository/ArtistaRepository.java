@@ -1,39 +1,59 @@
 package br.unesp.trabalho.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import br.unesp.trabalho.models.Artista;
-import br.unesp.trabalho.utils.Utils;
+import br.unesp.trabalho.models.Midia;
 
 public final class ArtistaRepository {
 	private static Map<String, Artista> mapArtista = new HashMap<>();
 
-	public static void adicionarArtista(Artista artista) {
-		mapArtista.put(artista.getNome(), artista);
+	public static Artista create(Artista artista) {
+		return mapArtista.put(artista.getNome(), artista);
 	}
 
-	public static void listarArtistas() {
+	public static Artista get(String nome) {
+		return mapArtista.get(nome);
+	}
+
+	public static Artista get(Artista artista) {
+		return mapArtista.get(artista.getNome());
+	}
+
+	public static Artista delete(String nome) {
+		return mapArtista.remove(nome);
+	}
+
+	public static Artista delete(Artista artista) {
+		return mapArtista.remove(artista.getNome());
+	}
+
+	/**
+	 * Procura o artista que pertence a midia e remove de sua lista de midias
+	 * 
+	 * @param midia
+	 * @return
+	 */
+	public static Midia delete(Midia midia) {
+		Artista artista = mapArtista.get(midia.getArtista().getNome());
+		boolean isDeleted = artista.getMidias().remove(midia);
+		return isDeleted ? midia : null;
+	}
+
+	public static boolean isEmpty() {
+		return mapArtista.isEmpty();
+	}
+
+	public static List<Artista> getAll() {
 		Iterator<Artista> iterator = mapArtista.values().iterator();
-		int i = 0;
+		List<Artista> artistas = new ArrayList<>();
 		while (iterator.hasNext()) {
-			i++;
-			Utils.print(i + ". " + iterator.next().getNome());
+			artistas.add(iterator.next());
 		}
-	}
-
-	public static Artista buscarArtista(Artista artista) {
-		if (mapArtista.containsKey(artista.getNome())) {
-			return mapArtista.get(artista.getNome());
-		}
-		return null;
-	}
-
-	public static Artista buscarArtista(String nome) {
-		if (mapArtista.containsKey(nome)) {
-			return mapArtista.get(nome);
-		}
-		return null;
+		return artistas.isEmpty() ? null : artistas;
 	}
 }

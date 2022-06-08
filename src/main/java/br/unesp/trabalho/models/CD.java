@@ -1,7 +1,5 @@
 package br.unesp.trabalho.models;
 
-import br.unesp.trabalho.models.Midia;
-
 public class CD extends Midia {
 	private Integer numeroFaixas;
 
@@ -12,7 +10,7 @@ public class CD extends Midia {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Número de faixas: " + this.numeroFaixas;
+		return super.toString() + ", Número de faixas: " + this.numeroFaixas;
 	}
 
 	public Integer getNumeroFaixas() {

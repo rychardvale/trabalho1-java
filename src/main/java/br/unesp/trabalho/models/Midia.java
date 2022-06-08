@@ -1,6 +1,6 @@
 package br.unesp.trabalho.models;
 
-public class Midia {
+public abstract class Midia {
 	private String nome;
 	private String codigoBarras;
 	private Float preco;

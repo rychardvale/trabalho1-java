@@ -1,7 +1,6 @@
 package br.unesp.trabalho.models;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public abstract class Artista {
@@ -25,14 +24,13 @@ public abstract class Artista {
 		return String.format("Nome artista: %s", this.nome);
 	}
 
-	private String midiasToString() {
-		Iterator<Midia> iterator = this.midias.iterator();
-		String midiasStr = null;
-		while (iterator.hasNext()) {
-			Midia midia = iterator.next();
-			midiasStr = String.format("%s%n%s", midiasStr, midia);
-		}
-		return midiasStr;
+	@Override
+	public boolean equals(Object obj) {
+		return false;
+	}
+
+	public boolean equals(Artista artista) {
+		return this.getNome() == artista.getNome();
 	}
 
 	public void adicionarMidia(Midia midia) {
