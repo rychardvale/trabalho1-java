@@ -11,31 +11,31 @@ import br.unesp.trabalho.repository.ArtistaRepository;
 import br.unesp.trabalho.utils.Utils;
 
 public class Menu {
-	private static final String[] opcoesMenuPrincipal = {
+	private static final String[] OPCOES_MENU_PRINCIPAL = {
 			"1. Cadastrar",
 			"2. Consultar",
 			"3. Deletar",
 			"4. Listar Todos",
 			"5. Sair",
 	};
-	private static final String[] opcoesSubmenuCadastrar = {
+	private static final String[] OPCOES_SUBMENU_CADASTRAR = {
 			"1. Cadastrar Banda",
 			"2. Cadastrar Cantor",
 			"3. Cadastrar DVD",
 			"4. Cadastrar CD",
 			"5. Voltar"
 	};
-	private static final String[] opcoesSubmenuConsultar = {
+	private static final String[] OPCOES_SUBMENU_CONSULTAR = {
 			"1. Consultar por Nome de Artista",
 			"2. Consultar por Nome de Mídia",
 			"3. Voltar"
 	};
-	private static final String[] opcoesSubmenuDeletar = {
+	private static final String[] OPCOES_SUBMENU_DELETAR = {
 			"1. Deletar por Nome de Artista",
 			"2. Deletar por Nome de Mídia",
 			"3. Voltar"
 	};
-	private static final String[] opcoesSubmenuListar = {
+	private static final String[] OPCOES_SUBMENU_LISTAR = {
 			"1. Listar Artistas",
 			"2. Listar Midias",
 			"3. Voltar"
@@ -47,7 +47,7 @@ public class Menu {
 		while (opcao != 5) {
 			try {
 				Utils.printHeader("menu");
-				Utils.print(opcoesMenuPrincipal);
+				Utils.print(OPCOES_MENU_PRINCIPAL);
 				opcao = Utils.lerInt("Escolha uma opção: ");
 				handleOpcaoMenu(opcao);
 			} catch (InputMismatchException e) {
@@ -65,7 +65,7 @@ public class Menu {
 				while (opcaoCadastrar != 5) {
 					try {
 						Utils.printHeader("Menu cadastrar");
-						Utils.print(opcoesSubmenuCadastrar);
+						Utils.print(OPCOES_SUBMENU_CADASTRAR);
 						opcaoCadastrar = Utils.lerInt("Escolha uma opção: ");
 						if (opcaoCadastrar == 1)
 							cadastrarBanda();
@@ -88,7 +88,7 @@ public class Menu {
 				while (opcaoConsultar != 3) {
 					try {
 						Utils.printHeader("Menu consultar");
-						Utils.print(opcoesSubmenuConsultar);
+						Utils.print(OPCOES_SUBMENU_CONSULTAR);
 						opcaoConsultar = Utils.lerInt("Escolha uma opção: ");
 						if (opcaoConsultar == 1)
 							consultarPorArtista();
@@ -107,7 +107,7 @@ public class Menu {
 				while (opcaoDeletar != 3) {
 					try {
 						Utils.printHeader("Menu deletar");
-						Utils.print(opcoesSubmenuDeletar);
+						Utils.print(OPCOES_SUBMENU_DELETAR);
 						opcaoDeletar = Utils.lerInt("Escolha uma opção: ");
 						if (opcaoDeletar == 1)
 							removerArtista();
@@ -126,7 +126,7 @@ public class Menu {
 				while (opcaoListar != 3) {
 					try {
 						Utils.printHeader("Menu listar");
-						Utils.print(opcoesSubmenuListar);
+						Utils.print(OPCOES_SUBMENU_LISTAR);
 						opcaoListar = Utils.lerInt("Escolha uma opção: ");
 						if (opcaoListar == 1)
 							listarTodosArtistas();
