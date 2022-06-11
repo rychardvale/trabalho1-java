@@ -151,7 +151,7 @@ public class Menu {
 		String nome = Utils.lerString("Nome da banda: ");
 		Integer numeroIntegrantes = Utils.lerInt("Número de integrantes: ");
 		Banda banda = new Banda(nome, numeroIntegrantes);
-		CatalogoController.cadastrarArtista(banda);
+		CatalogoService.cadastrarArtista(banda);
 	}
 
 	private static void cadastrarCantor() {
@@ -159,7 +159,7 @@ public class Menu {
 		String nome = Utils.lerString("Nome cantor: ");
 		Float tempoCarreira = Utils.lerFloat("Tempo de carreira (anos): ");
 		Cantor cantor = new Cantor(nome, tempoCarreira);
-		CatalogoController.cadastrarArtista(cantor);
+		CatalogoService.cadastrarArtista(cantor);
 	}
 
 	private static void cadastrarCD() {
@@ -182,9 +182,9 @@ public class Menu {
 		CD cd = new CD(nome, preco, codigoBarras, numeroFaixas);
 
 		Utils.printHeader("artistas disponíveis");
-		CatalogoController.listarArtistas();
+		CatalogoService.listarArtistas();
 		String nomeArtista = Utils.lerString("Nome do Artista: ");
-		CatalogoController.adicionarMidia(cd, nomeArtista);
+		CatalogoService.adicionarMidia(cd, nomeArtista);
 	}
 
 	private static void cadastrarDVD() {
@@ -206,9 +206,9 @@ public class Menu {
 		DVD dvd = new DVD(nome, preco, codigoBarras, tempoDuracao);
 
 		Utils.printHeader("artistas disponíveis");
-		CatalogoController.listarArtistas();
+		CatalogoService.listarArtistas();
 		String nomeArtista = Utils.lerString("Nome do Artista: ");
-		CatalogoController.adicionarMidia(dvd, nomeArtista);
+		CatalogoService.adicionarMidia(dvd, nomeArtista);
 	}
 
 	private static void consultarPorArtista() {
@@ -220,32 +220,32 @@ public class Menu {
 		Utils.printHeader("Consultar por artistas");
 		String nomeArtista = Utils.lerString("Nome do artista: ");
 		Artista artista = ArtistaRepository.get(nomeArtista);
-		CatalogoController.listarTodos(artista);
+		CatalogoService.listarTodos(artista);
 	}
 
 	private static void consultaPorNomeMidia() {
 		Utils.printHeader("Consultar por nome de mídia");
 		String nomeMidia = Utils.lerString("Nome da mídia desejada: ");
-		CatalogoController.listarPorNomeMidia(nomeMidia);
+		CatalogoService.listarPorNomeMidia(nomeMidia);
 	}
 
 	private static void removerArtista() {
 		Utils.printHeader("Remover artista");
 		String nome = Utils.lerString("Nome do artista a ser removido: ");
-		CatalogoController.removerArtista(nome);
+		CatalogoService.removerArtista(nome);
 	}
 
 	private static void removerMidia() {
 		Utils.printHeader("Remover mídia");
 		String nome = Utils.lerString("Nome da mídia a ser removida: ");
-		CatalogoController.removerMidia(nome);
+		CatalogoService.removerMidia(nome);
 	}
 
 	private static void listarTodasMidias() {
-		CatalogoController.listarTodos();
+		CatalogoService.listarTodos();
 	}
 
 	private static void listarTodosArtistas() {
-		CatalogoController.listarArtistas();
+		CatalogoService.listarArtistas();
 	}
 }

@@ -8,7 +8,7 @@ import br.unesp.trabalho.utils.Utils;
 import java.util.Iterator;
 import java.util.List;
 
-public final class CatalogoController {
+public final class CatalogoService {
 
 	/**
 	 * Listar todos as mídias do artista
