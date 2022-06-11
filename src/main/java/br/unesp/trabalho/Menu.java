@@ -242,10 +242,12 @@ public class Menu {
 	}
 
 	private static void listarTodasMidias() {
+		Utils.printHeader("Midias cadastradas");
 		CatalogoService.listarTodos();
 	}
 
 	private static void listarTodosArtistas() {
+		Utils.printHeader("artistas cadastrados");
 		CatalogoService.listarArtistas();
 	}
 }
